@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Record</title>
+  <link th:href="@{main.css}" href="../static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<main>
+  <h1>Delete Record</h1>
+  <p class="message">Do you really want to remove this record?</p>
+  <h2>Record Data:</h2>
+  <div th:object="${pet}">
+    <p>
+      <label class="group-label">Pet Name:</label>
+      <span class="output" th:text="*{petName}">Oreo</span>
+    </p>
+    <p>
+      <label class="group-label">Pet Kind:</label>
+      <span class="output" th:text="*{petKind}">Rabbit</span>
+    </p>
+    <p>
+      <label class="group-label">Pet Gender:</label>
+      <span class="output" th:text="*{petGender}">Male</span>
+    </p>
+    <p>
+      <label class="group-label">Vaccinated:</label>
+      <span class="output" th:text="*{vaccinated}?'yes':'no'">no</span>
+    </p>
+  </div>
+  <form method="post"
+        th:action="@{RemovePet}" action="ListPets.html">
+    <input type="hidden" name="id" th:value="${pet.id}">
+    <input type="submit" value="Remove Record">
+  </form>
+
+  <p><a href="Index.html" th:href="@{Index}">Index</a> </p>
+  <p><a href="AddPet.html" th:href="@{AddPet}">Add Pet</a> </p>
+  <p><a href="ListPets.html" th:href="@{ListPets}">List Pets</a> </p>
+</main>
+</body>
+</html>
