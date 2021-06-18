@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Insert</title>
+  <link th:href="@{main.css}" href="../static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<main>
+  <h1>Confirm Insert</h1>
+  <h2>Entered Data:</h2>
+  <div th:object="${form}">
+    <p>
+      <label class="group-label">Pet Name:</label>
+      <span class="output" th:text="*{petName}">Oreo</span>
+    </p>
+    <p>
+      <label class="group-label">Pet Kind:</label>
+      <span class="output" th:text="*{petKind}">Rabbit</span>
+    </p>
+    <p>
+      <label class="group-label">Pet Gender:</label>
+      <span class="output" th:text="*{petGender}">Male</span>
+    </p>
+    <p>
+      <label class="group-label">Vaccinated:</label>
+      <span class="output" th:text="*{vaccinated}">yes</span>
+    </p>
+  </div>
+  <p><a href="Index.html" th:href="@{../Index}">Index</a> </p>
+  <p><a href="AddPet.html" th:href="@{../AddPet}">Add Pet</a> </p>
+  <p><a href="ListPets.html" th:href="@{../ListPets}">List Pets</a> </p>
+</main>
+</body>
+</html>
