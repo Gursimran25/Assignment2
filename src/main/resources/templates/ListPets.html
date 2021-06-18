@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List All</title>
+    <link th:href="@{main.css}" href="../static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<main>
+    <h1>List All</h1>
+    <table th:unless="${#Lists.isEmpty(pets)}">
+        <tr>
+            <th>Count</th>
+            <th>Pet Name</th>
+            <th>Pet Kind</th>
+            <th>Options</th>
+        </tr>
+        <tr th:each="p,c: ${pets}">
+            <td th:text="${c.count}">1</td>
+            <td th:text="${p.petName}">Lisa</td>
+            <td th:text="${p.petKind}">Cat</td>
+            <td>
+            <a href="PetDetails.html" th:href="@{PetDetails/{id}(id=${p.id})}">Details</a>
+            |
+            <a href="EditPet.html" th:href="@{EditPet(id=${p.id})}">Edit</a>
+            |
+            <a href="DeletePet.html" th:href="@{DeletePet(id=${p.id})}">Delete</a>
+            </td>
+        </tr>
+        <!--/*-->
+        <tr>
+            <td>2</td>
+            <td>Robin</td>
+            <td>Dog</td>
+            <td>
+                <a href="PetDetails.html">Details</a>
+                |
+                <a href="EditPet.html">Edit</a>
+                |
+                <a href="DeletePet.html">Delete</a>
+            </td>
+        </tr>
+        <!--/*-->
+        <tr>
+            <td>3</td>
+            <td>Oreo</td>
+            <td>Rabbit</td>
+            <td>
+                <a href="PetDetails.html">Details</a>
+                |
+                <a href="EditPet.html">Edit</a>
+                |
+                <a href="DeletePet.html">Delete</a>
+            </td>
+        </tr>
+        <!--*/-->
+    </table>
+    <p class="message" th:if="${#Lists.isEmpty(pets)}">No Pet Data</p>
+    <p><a href="Index.html" th:href="@{Index}">Index</a></p>
+    <p><a href="AddPet.html" th:href="@{AddPet}">Add Pet</a></p>
+    <p><a href="ListPets.html" th:href="@{DeleteAll}">DeleteAll</a></p>
+</main>
+
+</body>
+</html>

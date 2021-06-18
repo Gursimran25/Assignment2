@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pet Details</title>
+    <link th:href="@{main.css}" href="../static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<main>
+    <h1>Pet Details</h1>
+    <div th:object="{pet}">
+        <p>
+            <label class="group-label">Pet Name:</label>
+            <span class="output" th:text="*{petName}">Lisa</span>
+        </p>
+        <p>
+            <label class="group-label">Pet Kind:</label>
+            <span class="output" th:text="*{petKind}">Cat</span>
+        </p>
+        <p>
+            <label class="group-label">Pet Gender:</label>
+            <span class="output" th:text="*{petGender}">Female</span>
+        </p>
+        <p>
+            <label class="group-label">Vaccinated:</label>
+            <span class="output" th:text="*{vaccinated}?'yes':'no'">yes</span>
+        </p>
+    </div>
+    <p><a href="EditPet.html" th:href="@{../EditPet(id=${pet.id})}">Edit Pet</a> </p>
+    <p><a href="Index.html" th:href="@{../Index}">Index</a> </p>
+    <p><a href="AddPet.html" th:href="@{../AddPet">Add Pet</a> </p>
+    <p><a href="ListPets.html" th:href="@{../ListPets">List Pets</a> </p>
+</main>
+
+</body>
+</html>
