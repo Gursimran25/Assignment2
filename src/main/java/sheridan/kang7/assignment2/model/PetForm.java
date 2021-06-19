@@ -9,10 +9,18 @@ import java.io.Serializable;
 
 public class PetForm implements Serializable {
     private int id = 0;
-    private String petName;
-    private String petKind;
-    private String petGender;
-    private Boolean vaccinated;
+    @NotBlank
+    @Size(max = 30)
+    @Pattern(regexp = "[A-Za-z]*")
+    private String petName = "";
+
+    @NotBlank
+    @Pattern(regexp = "(Cat|Dog|Rabbit)?")
+    private String petKind = "";
+
+    @NotNull
+    public String petGender;
+    private boolean vaccinated = false;
     public PetForm() {
 
     }
@@ -42,7 +50,6 @@ public class PetForm implements Serializable {
     }
 
     public String getPetGender() {
-        String petGender = null;
         return null;
     }
 
@@ -51,7 +58,6 @@ public class PetForm implements Serializable {
     }
 
     public Boolean isVaccinated() {
-        Boolean vaccinated = null;
         return vaccinated;
     }
 
