@@ -1,8 +1,12 @@
 package sheridan.kang7.assignment2.service;
 
 import org.springframework.stereotype.Service;
+import sheridan.kang7.assignment2.model.PetForm;
+import sheridan.kang7.assignment2.repository.PetDataRepositoryJpa;
+import sheridan.kang7.assignment2.repository.PetEntityJpa;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -56,6 +60,8 @@ public class PetDataServiceJpaImpl implements PetDataService {
         }
         return null;
     }
+
+
     public void updatePetForm(PetForm form){
         Optional<PetEntityJpa> result = petDataRepositoryJpa.findById(form.getId());
         if(result.isPresent()){
